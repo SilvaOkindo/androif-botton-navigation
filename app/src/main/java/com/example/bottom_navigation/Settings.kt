@@ -1,10 +1,14 @@
 package com.example.bottom_navigation
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import com.example.bottom_navigation.databinding.FragmentSettingsBinding
+import com.example.bottom_navigation.viewmodels.GameViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +25,8 @@ class Settings : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private val gameViewModel by activityViewModels<GameViewModel> ()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,7 +40,12 @@ class Settings : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        val binding = FragmentSettingsBinding.inflate(inflater, container, false).apply {
+            this.gameViewModel = gameViewModel
+            textCurrentTurnInfo.movementMethod = ScrollingMovementMethod()
+            lifecycleOwner = viewLifecycleOwner
+        }
+        return binding.root
     }
 
     companion object {

@@ -4,11 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1925" />
+        <entry key="app/src/main/res/drawable/ai_toggle_bg.xml" value="0.1915" />
+        <entry key="app/src/main/res/drawable/currency_btc.xml" value="0.1925" />
+        <entry key="app/src/main/res/drawable/dice_6.xml" value="0.1925" />
         <entry key="app/src/main/res/drawable/ic_baseline_home.xml" value="0.1925" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16822916666666668" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16847826086956522" />
+        <entry key="app/src/main/res/layout/button_rounded_corners.xml" value="0.18115942028985507" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.16847826086956522" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_coin.xml" value="0.15384615384615385" />
+        <entry key="app/src/main/res/layout/player_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.18333333333333332" />
       </map>
     </option>

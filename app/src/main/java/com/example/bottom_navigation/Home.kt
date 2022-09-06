@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.example.bottom_navigation.databinding.FragmentHomeBinding
+import com.example.bottom_navigation.viewmodels.GameViewModel
+import com.example.bottom_navigation.viewmodels.PickPlayersViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,12 +34,34 @@ class Home : Fragment() {
         }
     }
 
+    private val pickPlayersViewModel
+        by activityViewModels<PickPlayersViewModel> ()
+
+    private val gameViewModel by activityViewModels<GameViewModel> ()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+        val binding = FragmentHomeBinding.inflate(inflater, container, false).apply {
+            this.viewmodel = pickPlayersViewModel
+
+            this.buttonPlayGame.setOnClickListener {
+                gameViewModel.startGame(
+                    pickPlayersViewModel.players.value?.filter { newPlayer ->
+                        newPlayer.isIncluded.get()
+                    }?.map { newPlayer ->
+                        newPlayer.toPlayer()
+                    } ?: emptyList()
+                )
+                findNavController().navigate(R.id.home_fragment)
+            }
+
+        }
+
+        return binding.root
     }
 
     companion object {

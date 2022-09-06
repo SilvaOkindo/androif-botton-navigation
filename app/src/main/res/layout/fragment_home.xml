@@ -1,16 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Home"
-    android:id="@+id/home_fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+   <data>
+       <variable
+           name="viewmodel"
+           type="com.example.bottom_navigation.viewmodels.PickPlayersViewModel" />
+   </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:gravity="center"/>
+        tools:context=".Home"
+        android:layout_margin="16dp"
+        android:id="@+id/home_fragment">
 
-</FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/main_player"
+                layout="@layout/player_list_item"
+                app:player="@{viewmodel.players[0]}"
+               />
+
+            <include
+                android:id="@+id/player2"
+                layout="@layout/player_list_item"
+                app:player="@{viewmodel.players[1]}"
+                />
+
+            <include
+                android:id="@+id/player3"
+                layout="@layout/player_list_item"
+                app:player="@{viewmodel.players[2]}"/>
+
+
+            <include
+                android:id="@+id/player4"
+                layout="@layout/player_list_item"
+                app:player="@{viewmodel.players[3]}"/>
+
+            <include
+                android:id="@+id/player5"
+                layout="@layout/player_list_item"
+                app:player="@{viewmodel.players[4]}"/>
+
+            <include
+                android:id="@+id/player6"
+                layout="@layout/player_list_item"
+                app:player="@{viewmodel.players[5]}"/>
+
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_play_game"
+            android:layout_width="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_play_arrow_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/play_icon"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

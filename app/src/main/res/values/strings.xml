@@ -4,4 +4,12 @@
     <string name="hello_blank_fragment">Hello Home fragment</string>
     <string name="hello_settings_fragment">Hello Settings Fragment</string>
     <string name="profile_fragment">Hello Profile Fragment</string>
+    <string name="play_icon">play</string>
+    <string name="player_name">Player name</string>
+    <string name="roll">Roll</string>
+    <string name="or">OR</string>
+    <string name="pass">Pass</string>
+    <string name="coin_s_left">coin(s) left</string>
+    <string name="na">N/A</string>
+    <string name="coin_icon">Coin Icon</string>
 </resources>
